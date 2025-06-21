@@ -1,5 +1,6 @@
 package com.example.movie_booking.controller;
 
+import com.example.movie_booking.dto.ScreenDTO;
 import com.example.movie_booking.model.Screen;
 import com.example.movie_booking.service.ScreenService;
 import com.example.movie_booking.service.TheatreService;
@@ -20,19 +21,30 @@ public class ScreenController {
     }
 
     @GetMapping("/{id}")
-    List<Screen> getScreenById(@PathVariable Long Id)
+    List<ScreenDTO> getScreenById(@PathVariable Long id)
     {
-        return screenService.getScreensByTheatre(Id);
+        return screenService.getScreensByTheatre(id);
 
 
 
     }
     @PostMapping("/{id}")
-    Screen addScreen(@RequestBody Screen screen, @PathVariable Long id )
+    ScreenDTO addScreen(@RequestBody Screen screen, @PathVariable Long id )
     {
         return screenService.save(screen,id);
 
+
+
+
     }
+
+    @DeleteMapping("/{id}")
+    void deleteScreen(@PathVariable Long id)
+    {
+        screenService.delete(id);
+
+    }
+
 
 
 }

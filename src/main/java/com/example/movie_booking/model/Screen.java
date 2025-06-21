@@ -1,5 +1,6 @@
 package com.example.movie_booking.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,6 +23,15 @@ public class Screen {
         this.id = id;
         this.name = name;
         this.theatre = theatre;
+    }
+
+    @Override
+    public String toString() {
+        return "Screen{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", theatre=" + theatre +
+                '}';
     }
 
     public Long getId() {

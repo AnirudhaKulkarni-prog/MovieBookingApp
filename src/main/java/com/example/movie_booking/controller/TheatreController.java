@@ -1,5 +1,6 @@
 package com.example.movie_booking.controller;
 
+import com.example.movie_booking.dto.TheatreDTO;
 import com.example.movie_booking.model.Theatre;
 import com.example.movie_booking.service.TheatreService;
 import org.springframework.http.HttpStatus;
@@ -18,17 +19,17 @@ public class TheatreController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Theatre>> getAll() {
+    public ResponseEntity<List<TheatreDTO>> getAll() {
         return ResponseEntity.ok(theatreService.getAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Theatre> getById(@PathVariable Long id) {
+    public ResponseEntity<TheatreDTO> getById(@PathVariable Long id) {
         return ResponseEntity.ok(theatreService.getById(id));
     }
 
     @PostMapping
-    public ResponseEntity<Theatre> save(@RequestBody Theatre theatre) {
+    public ResponseEntity<TheatreDTO> save(@RequestBody Theatre theatre) {
         return new ResponseEntity<>(theatreService.save(theatre), HttpStatus.CREATED);
     }
 

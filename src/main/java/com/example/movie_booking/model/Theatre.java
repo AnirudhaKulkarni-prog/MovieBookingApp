@@ -17,6 +17,16 @@ public class Theatre {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Override
+    public String toString() {
+        return "Theatre{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", city='" + city + '\'' +
+                ", screens=" + screens +
+                '}';
+    }
+
     public Theatre() {
     }
 
