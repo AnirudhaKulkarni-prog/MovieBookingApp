@@ -5,4 +5,3 @@ public class ScreenDTO {
     private String name;
     // ❌ no theatre reference
 }
-}
